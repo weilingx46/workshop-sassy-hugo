@@ -101,6 +101,7 @@ Add some images to `static`:
 ```
 
 Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
+*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! 
 
 ```
 ---
@@ -114,7 +115,7 @@ draft: true
 ```
 Great!
 
-Let's `hugo server -D` again:
+Let's `hugo server -D` again. Now if you click `Read More` under your first post on the main page, you'll be directed to the post's page hosted at `http://localhost:1313/posts/my-first-post`:
 
 ![image](images/addimage.png)
 
