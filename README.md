@@ -262,11 +262,9 @@ public
     You now no longer have to worry about deleting `public` folder each time before you run hugo. You just have to commit and push your code to publish a new post onto your static site.
 
 
-#Sass Workshop Tutorial
+# Sass Tutorial
 
-
-
-###Installation Tutorial
+### Installation Tutorial
 
 Mac Installation (For other operating systems, please check `http://sass-lang.com/install` for instructions)
 
@@ -274,7 +272,7 @@ To install sass, run the command: `npm install -g sass` in 💻terminal.
 
 To check that Sass is installed, check the version with the command: `sass -v`.
 
-###Variables
+### Variables
 
 With Sass variables, we can store information that we want to use multiple times. For example, if a brand color/font is used multiple times throughout your website, you may want to store those in variables and just call the variable each time.
 
@@ -298,7 +296,7 @@ Notes:
 	
 	Sass is a preprocessor so when processed, the variables that we define are translated into normal CSS. 
 
-###Nesting
+### Nesting
 
 With Sass, we can nest our CSS selectors similar to the hierarchy of HTML. 
 
@@ -342,7 +340,7 @@ With Sass, we can nest our CSS selectors similar to the hierarchy of HTML.
 
 With Sass, we establish the same visual hierarchy as HTML. The ul, li and p selectors now live under the footer selector, similar to how each tag would be structured in HTML.
 
-###Mixins
+### Mixins
 
 Mixins are similar to variable but allow you store larger chunks of CSS declarations that you may want to reuse throughout a website.
 
@@ -392,7 +390,7 @@ which would give us:
 
 The color is set to blue with the first argument that is passed in and the background-color is set to green by default since there is no correspnding argument passed in. 
 
-###Inheritance
+### Inheritance
 
 	.smallShyDog{
 		background-color: white;
@@ -445,7 +443,7 @@ We can employ Sass inheritance by using `@extend` to shorten our code where the 
 Each of the small shy animals inherit their small dimensions (because they are small) and large margins (because they are shy) from a parent selector .smallShyAnimals. The background-color for each of the animal selectors are different but that is okay since they are siblings and can branch out beyond their shared attributes.
 	
 
-###Additional Features 
+### Additional Features 
 
 Sass allows us to break down our CSS into smaller parts, which is more maintainable and easier to organize.
 
@@ -497,12 +495,12 @@ Additionally, Sass supports standard math operators (+, -, *, /, and %):
 	.rectangle
 	  width: 250px / 80px * 80%
 	
-###Sass vs Scss
+### Sass vs Scss
 
 Sass is the older syntax where brackets and semicolons are not used. The new and primary syntax of Sass 3 is called Scss. Scss is more like the traditional CSS with brackets and semicolons while still supporting the features of Sass such as nesting.
 
 
-###Additional Sass Resources:
+### Additional Sass Resources:
 
 	http://sass-lang.com/install
 	http://sass-lang.com/guide
