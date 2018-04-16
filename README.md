@@ -101,6 +101,7 @@ Add some images to `static`:
 ```
 
 Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
+
 *Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! 
 
 ```
