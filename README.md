@@ -27,10 +27,13 @@ echo 'theme = "ananke"' >> config.toml
 ```
 
 ## Configure the theme
-Open up `config.toml` in Atom and change the title to whatever you want. Don't worry about the URL for now.
+Open up `config.toml` in Atom and change the title to whatever you want.
 
 ```
-baseURL = "https://example.org/"
+atom config.toml
+```
+
+```
 languageCode = "en-us"
 title = "CS52's First Hugo Site"
 theme = "ananke"
@@ -49,6 +52,11 @@ After your site is configured, we can add our first post.
 hugo new posts/my-first-post.md
 ```
 Take a look at the tree organization of the `content` directory:
+
+```
+tree content
+```
+(You might have to `brew install tree`)
 
 ```
 content
