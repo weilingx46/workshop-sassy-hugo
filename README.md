@@ -463,7 +463,7 @@ public
     You now no longer have to worry about deleting `public` folder each time before you run hugo. You just have to commit and push your code to publish a new post onto your static site.
 
 
-# Sass Tutorial
+# Sass Tutorial (Activity is Extra Credit)
 
 ### Installation Tutorial
 
