@@ -102,7 +102,7 @@ Add some images to `static`:
 
 Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
 
-*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! 
+*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! Check out [this tutorial](https://tutorialedge.net/golang/hugo/hugo-adding-images-to-posts/) for more help and other cool ways you can add images into your Hudo site using tricks called 'shortcodes'. 
 
 ```
 ---
