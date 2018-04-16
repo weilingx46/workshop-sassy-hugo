@@ -114,6 +114,8 @@ draft: true
 ```
 Great!
 
+Let's `hugo server -D` again:
+
 ![image](images/addimage.png)
 
 
