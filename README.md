@@ -100,10 +100,17 @@ Add some images to `static`:
 │   └── post-2.jpg
 ```
 
-Then you can simply include them in any of your Markdown files:
+Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
 
 ```
+---
+title: "My First Post"
+date: 2018-04-13T12:01:29-04:00
+draft: true
+---
+
 ![image](/post-1.jpg)
+
 ```
 Great!
 
