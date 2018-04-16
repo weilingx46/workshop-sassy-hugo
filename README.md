@@ -260,3 +260,259 @@ public
     …the pre-push Git Hook will delete the existing `public` folder, call `hugo` and run `surge` which publishes the public directory to your domain.
 
     You now no longer have to worry about deleting `public` folder each time before you run hugo. You just have to commit and push your code to publish a new post onto your static site.
+
+
+#Sass Workshop Tutorial
+
+
+
+###Installation Tutorial
+
+Mac Installation (For other operating systems, please check `http://sass-lang.com/install` for instructions)
+
+To install sass, run the command: `npm install -g sass` in 💻terminal.
+
+To check that Sass is installed, check the version with the command: `sass -v`.
+
+###Variables
+
+With Sass variables, we can store information that we want to use multiple times. For example, if a brand color/font is used multiple times throughout your website, you may want to store those in variables and just call the variable each time.
+
+We can assign colors and fonts to variables with the following we can do: 
+
+
+	$primary-font: Times New Roman, serif
+	$primary-color: #a4a4a4
+	$secondary-color: #faf7f4
+	
+And when we reference the variable as our value:
+
+	div
+		color: $primary-color
+		background-color: $secondary-color
+		font: $primary-font
+	
+Notes: 
+
+	Compared to CSS, Sass does not require brackets {} or semicolons ; 
+	
+	Sass is a preprocessor so when processed, the variables that we define are translated into normal CSS. 
+
+###Nesting
+
+With Sass, we can nest our CSS selectors similar to the hierarchy of HTML. 
+
+(without Sass) Rather than writing: 
+
+	footer ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		list-style: none;
+	}
+	
+	footer li {
+		display: inline-block;
+	}
+	
+	footer p {
+		font: $primary-font;
+		color: $primary-color;
+	}
+
+(with Sass) We can write:
+	
+	footer {
+	  ul {
+	    display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		list-style: none;
+	  }
+	
+	  li {	
+	  	display: inline-block;
+	  }
+	
+	  p {
+	   font: $font-stack;
+	   color: $primary-color;
+	  }
+	}
+
+With Sass, we establish the same visual hierarchy as HTML. The ul, li and p selectors now live under the footer selector, similar to how each tag would be structured in HTML.
+
+###Mixins
+
+Mixins are similar to variable but allow you store larger chunks of CSS declarations that you may want to reuse throughout a website.
+
+To declare a mixin, we first use the `@mixin` tag, followed by the name of the mixin and the inputs we want to use.
+
+The mixin declaration would look like
+
+	@mixin $mixinName ($input1, $input2){
+		...
+	}
+	
+For example:
+
+	$primary-color: blue;
+	
+	@mixin navItem ($color, $backgroundColor) {
+		color: $color;
+		background-color: $backgroundColor;
+    }
+	
+	.rectangle { @include navItem ($primary-color, black); }
+
+When the CSS is generated, it will compile to become:
+
+	.rectangle{
+		color: blue;
+		background-color: black;
+	}
+
+Notes: 
+
+Default Values can also be set so for the example above:
+
+	@mixin navItem($color, $backgroundColor: green) {
+		color: $color;
+		background-color: $backgroundColor;
+	}
+	
+	.rectangle { @include navItem (blue); }
+
+which would give us: 
+
+	.rectangle{
+		color: blue;
+		background-color: green;
+	}
+
+The color is set to blue with the first argument that is passed in and the background-color is set to green by default since there is no correspnding argument passed in. 
+
+###Inheritance
+
+	.smallShyDog{
+		background-color: white;
+		margin: 100000px;
+		height: 1px;
+		width: 1px;
+		border: 1px solid black;
+	}
+	
+	.smallShyCat{
+		background-color: orange;
+		margin: 100000px;
+		height: 1px;
+		width: 1px;
+		border: 1px solid black;
+	}
+	
+	.smallShyHippo{
+		background-color: grey;
+		margin: 100000px;
+		height: 1px;
+		width: 1px;
+		border: 1px solid black;
+	}
+
+We can employ Sass inheritance by using `@extend` to shorten our code where the selectors inherit the same properties and values from the same parent.
+
+	.smallShyAnimals{
+		margin: 100000px;
+		height: 1px;
+		width: 1px;
+		border: 1px solid black;
+	}
+	
+	.smallShyDog{
+		background-color: white;
+		@extend .smallShyAnimals;
+	}
+	
+	.smallShyCat{
+		background-color: orange;
+		@extend .smallShyAnimals;
+	}
+	
+	.smallShyHippo{
+		background-color: grey;
+		@extend .smallShyAnimals;
+	}
+	
+Each of the small shy animals inherit their small dimensions (because they are small) and large margins (because they are shy) from a parent selector .smallShyAnimals. The background-color for each of the animal selectors are different but that is okay since they are siblings and can branch out beyond their shared attributes.
+	
+
+###Additional Features 
+
+Sass allows us to break down our CSS into smaller parts, which is more maintainable and easier to organize.
+
+For example, if we want to break down our styles for each page of our website, we can!
+
+Say we have multiple Sass files: _homePage.scss, _userPage.scss, and _loginPage.scss. We can import all these pages into a singular page called styles.sass. 
+
+	// a small section: _homePage.scss
+	
+	.homePageButton{
+		width: 20px;
+		height: 20px;
+		border-radius: 5px;
+		background-color:blue;
+	}
+	
+	// a small section: _userPage.scss
+	
+	.userPageButton{
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		background-color:green;
+	}
+	
+	// a small section: _loginPage.scss
+	
+	.loginPageButton{
+		width: 100px;
+		height: 50px;
+		border-radius: 3px;
+		background-color:yellow;
+	}
+	
+All these files can be imported into the base file: 
+	
+	// _styles.sass
+	
+	@import homePage
+	@import userPage
+	@import loginPage
+	
+	body
+	  font: Times New Roman, serif
+	  background-color: #faf7f4
+	  
+Additionally, Sass supports standard math operators (+, -, *, /, and %): 
+
+	.rectangle
+	  width: 250px / 80px * 80%
+	
+###Sass vs Scss
+
+Sass is the older syntax where brackets and semicolons are not used. The new and primary syntax of Sass 3 is called Scss. Scss is more like the traditional CSS with brackets and semicolons while still supporting the features of Sass such as nesting.
+
+
+###Additional Sass Resources:
+
+	http://sass-lang.com/install
+	http://sass-lang.com/guide
+	https://cssauthor.com/sass-resources/
+	http://thesassway.com/
+	https://www.sitepoint.com/html-css/css/sass-css/
+	http://sassbreak.com/
+	https://scotch.io/tutorials/getting-started-with-sass
+	https://www.sitepoint.com/the-benefits-of-inheritance-via-extend-in-sass/
+	http://sass.news/
+	http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+
+
