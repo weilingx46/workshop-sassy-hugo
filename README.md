@@ -198,7 +198,7 @@ You may need to restart your hugo server to apply the change.
 
 ### Create a New Archetype for Posts
 
-In the `archetypes` directory, create a new file called `posts.md` and delete the default file.
+In the `/archetypes` directory (not the archetypes directory in your theme folder), create a new file called `posts.md` and delete the `default.md` file.
 Add the following:
 
 ```
