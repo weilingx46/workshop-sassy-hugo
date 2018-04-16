@@ -36,7 +36,7 @@ theme = "ananke"
 
 
 
-# Adding Content
+## Adding Content
 In Hugo, everything is a page. Typically, you'll have a `content` folder where pages are further organized under directories. In our current project, we should automatically have a `content/posts/` directory.
 After your site is configured, we can add our first post.
 
@@ -144,6 +144,207 @@ Congratulations! This is what your final product should look like:
 *Now, before you go on......*
 
 ![Take 5](https://media.giphy.com/media/krP2NRkLqnKEg/giphy.gif)
+
+## Creating a New Theme
+
+Now you have seen what can be done with an existing theme. But what if you want
+to create your own. Let's see what it would take to start designing a new theme.
+
+### Create the New theme
+
+Hugo makes it simple to begin making a new theme. Use a name of your choice.
+
+`hugo new theme theme-name`
+
+This will create some of the files and folders needed for the new theme. Next,
+go back into your `config.toml` file and change the `title` field to your theme's name.
+Now let's open up the `themes/theme-name/layouts/index.html` file and place
+some basic html there:
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Hello World!</p>
+</body>
+</html>
+```
+
+Save the file, and with the server still running you should see 'Hello World!' on your site's page.
+
+
+### Create a New Archetype for Posts
+
+In the `archetypes` directory, create a new file called `posts.md` and delete the default file.
+Add the following:
+
+```
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+type: "post"
+---
+```
+
+This is now the frontmatter that will populate a post when you create a new one.
+Let's try it out. Use `hugo new posts/post-name` to create a couple more posts and add some content.
+You should see that the new archetype is in use.
+
+In each post you had previously, you will need to add a new field to the frontmatter.
+This field is in our new archetype, but was not in the default.
+
+`type: "post"`
+
+Now we can get to building out our theme a bit.
+
+### Building the Front Page View
+
+Go back to the `index.html` file and lets replace the body with this:
+
+```
+  <h1>Pages</h1>
+  {{ range .Data.Pages }}
+    {{ if eq .Type "page" }}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ end }}
+  {{ end }}
+  ```
+
+  This will show titles for all the pages we have which will be the "About"
+  and "Getting Started" pages we have already. These titles should pop up on the site.
+  But how do we get our posts to show up?
+
+  ```
+  <h1>Posts</h1>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "post"}}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ end }}
+  {{ end }}
+  ```
+
+  Adding this after the above "Pages" html will let us see the first ten posts in reverse order of their date.
+  Notice that we require the type of the file to be "post" as we defined in our archetype.
+  Also, the above code included links to each post and page so we can navigate to them.
+
+  ### Templates
+
+  The most important aspect of a Hugo theme is the template. There are three types of templates:
+  single (for content pages), list (for list pages), and partial (used in other places).
+  Let's create our single template. Open up `themes/theme-name/layouts/_default/single.html`
+  and add the following:
+
+  ```
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ .Title }}</title>
+</head>
+<body>
+  <h1>{{ .Title }}</h1>
+  <h2>{{ .Date.Format "Sun, Feb 11, 2018" }}</h2>
+  {{ .Content }}
+</body>
+</html>
+```
+
+This will set the content that shows up on any "single" page. It includes a
+format for the date so Hugo knows how to show the date. You should now see
+that posts show up as described here if you click on their link.
+
+Next, let's create a template for the "list" pages, like our homepage. navigate
+to `themes/theme-name/layouts/_default/list.html` and insert this:
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+  {{ range .Data.Pages }}
+    <h1><a href={{ .Permalink }}>{{ .Title }}</a></h1>
+  {{ end }}
+</body>
+</html>
+```
+
+Your homepage layout will now be governed by the html outlined in this file.
+Play around with it if you wish.
+
+### Partials
+
+As mentioned above, partial templates can be used in building other other templates.
+Open up `themes/theme-name/layouts/partials/header.html` and let's make a partial
+to store the header for our html documents.
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Title }}</title>
+</head>
+<body>
+```
+
+And let's do the same for `footer.html`.
+
+```
+</body>
+</html>
+```
+
+Now to put them to use. Open up the `themes/theme-name/layouts/index.html` file
+and lets replace the existing header and footer with partials.
+
+```
+{{ partial "header.html" . }}
+
+  <h1>Pages</h1>
+  {{ range .Data.Pages }}
+    {{ if eq .Type "page" }}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ end }}
+  {{ end }}
+
+  <h1>Posts</h1>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "post"}}
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ end }}
+  {{ end }}
+
+{{ partial "footer.html" . }}
+```
+
+Reload the page and you should see that nothing has changed, but the partials are now in use.
+
+
+### Styling
+
+Lastly, let's try to add just a bit of styling. Create a `themes/my-theme/static/css/main.css` file.
+Let's add in a bit of simple css.
+
+```
+body {
+  color: #00aaff;
+  background-color: yellow;
+  margin-left: 10%;
+}
+```
+
+You'll notice these changes have not been applied yet. We need to link the css
+files to our html. To do this, head to the `header.html` file and add the links.
+
+```
+<link rel="preload" href="css/theme.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="css/main.css" as="style" onload="this.rel='stylesheet'">
+```
+
+You should now see your styling changes have been applied to the main page.
+Add a few quick styling changes to make your page unique.
+
+This is obviously an extremely simple theme, but hopefully it shows how a theme
+can be made quickly and applied to many pages of your site.
+
 
 ## Hosting and Deployment
 ### Manual Deployment And First Run
