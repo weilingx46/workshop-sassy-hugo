@@ -1,4 +1,5 @@
-# Quickstart
+# Getting Started with Hugo
+Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions.
 ## Install Hugo
 Then verify the new install.
 ```
@@ -13,9 +14,9 @@ hugo new site quickstart
 ## Add a theme
 See themes.gohugo.io for a list of themes to consider. This quickstart uses the beautiful Ananke theme.
 ```
-cd quickstart;\
-git init;\
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\
+cd quickstart;
+git init;
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;
 
 # Edit your config.toml configuration file
 # and add the Ananke theme.
@@ -77,6 +78,28 @@ hugo server -D
 
 Notice how Hugo automatically styles your post for you! Where did this come from? If you take a look inside the `themes/ananke` directory, you'll see our theme comes with built-in html layouts under the `post` directory, as well as a `_default` directory and a `partials` directory which contain more instructions to automatically style all new content we create.
 
+### Adding images
+
+What if we want to add images to our Markdown files? Hugo provides a few ways to do this. First, store your images in the `static/` directory. This is where Hugo automatically looks for static content. It's also common practice to add an additional `static/img/` directory specifically for images, but that's up to you.
+
+Add some images to `static`:
+
+```
+├── static
+│   ├── post-1.jpg
+│   └── post-2.jpg
+```
+
+Then you can simply include them any of your Markdown files:
+
+```
+![image](/post-1.jpg)
+```
+Great!
+
+![image](images/addimage.png)
+
+
 ### Adding a nav bar
 Adding additional layouts such as a top nav bar with links to pages within your site is incredibly easy.
 
@@ -87,7 +110,9 @@ hugo new content/about.md
 hugo new content/getting-started.md
 ```
 
-In the `config.toml` file, add the following code to create the navbar menu:
+Add some Markdown content in each of these pages.
+
+Now we need to create a menu. In the `config.toml` file, add the following code to create the navbar menu:
 
 ```
 [menu]
@@ -108,6 +133,6 @@ In the `config.toml` file, add the following code to create the navbar menu:
   [[menu.main]]
     name = "Posts"
     pre = "<i class='fa fa-road'></i>"
-    url = "/posts"
+    url = "/posts/"
     weight = -100
 ```
