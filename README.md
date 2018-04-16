@@ -214,10 +214,9 @@ This is now the frontmatter that will populate a post when you create a new one.
 Let's try it out. Use `hugo new posts/post-name.md` to create a couple more posts and add some content.
 You should see that the new archetype is in use.
 
-In each post you had previously, you will need to add a new field to the frontmatter.
-This field is in our new archetype, but was not in the default.
+**In each post you had previously, you will need to add the `type: "post"` field to the frontmatter.
+This field is in our new archetype, but was not in the default when those posts were created.
 
-`type: "post"`
 
 Now we can get to building out our theme a bit.
 
@@ -247,7 +246,7 @@ Go back to the `index.html` file and lets replace the body with this:
   {{ end }}
   ```
 
-  Adding this after the above "Pages" html will let us see the first ten posts in reverse order of their date.
+  Adding this after the above "Pages" code will let us see the first ten posts in reverse order of their date.
   Notice that we require the type of the file to be "post" as we defined in our archetype.
   Also, the above code included links to each post and page so we can navigate to them.
 
@@ -316,7 +315,8 @@ And let's do the same for `footer.html`.
 ```
 
 Now to put them to use. Open up the `themes/theme-name/layouts/index.html` file
-and lets replace the existing header and footer with partials.
+and lets replace the existing header and footer with partials. Replace the existing 
+code with this:
 
 ```
 {{ partial "header.html" . }}
@@ -338,6 +338,7 @@ and lets replace the existing header and footer with partials.
 {{ partial "footer.html" . }}
 ```
 
+We can see that the calls to `header.html` and `footer.html` will be replaced with the code in those files.
 Reload the page and you should see that nothing has changed, but the partials are now in use.
 
 
