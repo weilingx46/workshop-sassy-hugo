@@ -1,5 +1,5 @@
 # Getting Started with Hugo
-Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions based on [Hugo's Getting Started guide](https://gohugo.io/getting-started/quick-start/). Feel free to use their website for further documentation.
+Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions [based on [Hugo's Getting Started guide](https://gohugo.io/getting-started/quick-start/)]. Feel free to use their website for further documentation.
 ## Install Hugo
 Then verify the new install.
 ```
@@ -11,6 +11,8 @@ This will automatically create a new directory for your site called `quickstart`
 ```
 hugo new site quickstart
 ```
+
+You can ignore the suggestions that come up, we're going to get to all of that in the tutorial.
 
 ## Add a theme
 See [themes.gohugo.io](https://themes.gohugo.io) for a list of themes to consider. We happened to like the Ananke theme that the quickstart guide uses, but feel free to browse for another.
