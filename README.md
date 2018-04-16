@@ -169,7 +169,7 @@ Congratulations! This is what your final product should look like:
 ## Creating a New Theme
 
 Now you have seen what can be done with an existing theme. But what if you want
-to create your own. Let's see what it would take to start designing a new theme.
+to create your own? Let's see what it would take to start designing a new theme.
 
 ### Create the New theme
 
@@ -178,7 +178,7 @@ Hugo makes it simple to begin making a new theme. Use a name of your choice.
 `hugo new theme theme-name`
 
 This will create some of the files and folders needed for the new theme. Next,
-go back into your `config.toml` file and change the `title` field to your theme's name.
+go back into your `config.toml` file and change the `theme` field to your theme's name.
 Now let's open up the `themes/theme-name/layouts/index.html` file and place
 some basic html there:
 
