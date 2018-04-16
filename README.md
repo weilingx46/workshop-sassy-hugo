@@ -211,7 +211,7 @@ type: "post"
 ```
 
 This is now the frontmatter that will populate a post when you create a new one.
-Let's try it out. Use `hugo new posts/post-name` to create a couple more posts and add some content.
+Let's try it out. Use `hugo new posts/post-name.md` to create a couple more posts and add some content.
 You should see that the new archetype is in use.
 
 In each post you had previously, you will need to add a new field to the frontmatter.
