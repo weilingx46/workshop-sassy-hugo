@@ -148,7 +148,7 @@ Congratulations! This is what your final product should look like:
 ## Hosting and Deployment
 ### Manual Deployment And First Run
 
-Now that you have a beautiful site setup, let's prepare to deploy it! :rocket:
+Now that you have a beautiful site setup, let's prepare to deploy it! :rocket: :rocket:
 
 1. Install Surge CLI (if you haven't already done so for your past short assignments and labs)
 
@@ -178,7 +178,32 @@ Now that you have a beautiful site setup, let's prepare to deploy it! :rocket:
 
 ### Automating Deployment with Git Hooks
 
-Now, we want to automate this process with **Git Hooks**.
+Now, we want to automate this process with **Git Hooks**. Before we go into this process, however, we have to create a remote repo to push our local repo to.
+
+1. Go to [github](https://github.com/).
+2. Log in to your account.
+3. Click the [new repository button](https://github.com/new) in the top-right.
+
+  ![new_repo](images/new_repo.png)
+
+4. Click the “Create repository” button.
+5. Follow the second set of instructions:
+
+```
+$ git remote add origin https://github.com/YOUR_USER/NEW_REPO`
+$ git push -u origin master
+```
+6. Create `.gitignore` file with the following:
+
+```
+node_modules
+public
+```
+7. `Commit` and `push` again to your repo to make sure everything is working.
+
+    ![Git Merge](https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif)
+
+**Now, we can start automating the process with Git Hooks.**
 
 1. Create a `package.json` in your project root folder and follow through the defaults:
 
