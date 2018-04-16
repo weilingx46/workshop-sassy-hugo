@@ -102,7 +102,7 @@ Add some images to `static`:
 
 Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
 
-*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! Check out [this tutorial](https://tutorialedge.net/golang/hugo/hugo-adding-images-to-posts/) for more help and other cool ways you can add images into your Hudo site using tricks called 'shortcodes'. 
+*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! Check out [this tutorial](https://tutorialedge.net/golang/hugo/hugo-adding-images-to-posts/) for more help and other cool ways you can add images into your Hugo site using tricks called 'shortcodes'. 
 
 ```
 ---
@@ -295,7 +295,7 @@ Play around with it if you wish.
 
 ### Partials
 
-As mentioned above, partial templates can be used in building other other templates.
+As mentioned above, partial templates can be used in building other templates.
 Open up `themes/theme-name/layouts/partials/header.html` and let's make a partial
 to store the header for our html documents.
 
