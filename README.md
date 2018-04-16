@@ -174,6 +174,7 @@ to create your own? Let's see what it would take to start designing a new theme.
 ### Create the New theme
 
 Hugo makes it simple to begin making a new theme. Use a name of your choice.
+Think of your own creative name instead of 'theme-name'.
 
 `hugo new theme theme-name`
 
