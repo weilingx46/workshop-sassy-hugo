@@ -1,5 +1,5 @@
 # Getting Started with Hugo
-Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions.
+Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions based on [Hugo's Getting Started guide](gohugo.io). Feel free to use their website for further documentation.
 ## Install Hugo
 Then verify the new install.
 ```
@@ -7,12 +7,13 @@ brew install hugo
 hugo version
 ```
 ## Create a new site
+This will automatically create a new directory for your site called `quickstart`.
 ```
 hugo new site quickstart
 ```
 
 ## Add a theme
-See themes.gohugo.io for a list of themes to consider. This quickstart uses the beautiful Ananke theme.
+See [themes.gohugo.io](themes.gohugo.io) for a list of themes to consider. We happened to like the Ananke theme that the quickstart guide uses, but feel free to browse for another.
 ```
 cd quickstart;
 git init;
@@ -24,7 +25,7 @@ echo 'theme = "ananke"' >> config.toml
 ```
 
 ## Configure the theme
-Open up `config.toml` in Atom and change the title to whatever you want:
+Open up `config.toml` in Atom and change the title to whatever you want. Don't worry about the URL for now.
 
 ```
 baseURL = "https://example.org/"
@@ -36,8 +37,7 @@ theme = "ananke"
 
 
 # Adding Content
-In Hugo, everything is a page. Typically, you'll have a `content` folder with all your pages.
-Within the `content` folder, pages are further organized under directories. In our current project, we should automatically have a `content/posts` directory.
+In Hugo, everything is a page. Typically, you'll have a `content` folder where pages are further organized under directories. In our current project, we should automatically have a `content/posts/` directory.
 After your site is configured, we can add our first post.
 
 ### Our first post
@@ -90,7 +90,7 @@ Add some images to `static`:
 │   └── post-2.jpg
 ```
 
-Then you can simply include them any of your Markdown files:
+Then you can simply include them in any of your Markdown files:
 
 ```
 ![image](/post-1.jpg)
@@ -136,6 +136,10 @@ Now we need to create a menu. In the `config.toml` file, add the following code 
     url = "/posts/"
     weight = -100
 ```
+
+Congratulations! This is what your final product should look like:
+
+![Final Product](https://media.giphy.com/media/w8Cdsq4ZdepmysxEbR/giphy.gif)
 
 *Now, before you go on......*
 
