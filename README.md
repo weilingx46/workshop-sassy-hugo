@@ -463,7 +463,7 @@ public
     You now no longer have to worry about deleting `public` folder each time before you run hugo. You just have to commit and push your code to publish a new post onto your static site.
 
 
-# Sass Tutorial (Activity is Extra Credit)
+# Sass Tutorial (Activity at Bottom is Extra Credit)
 
 ### Installation Tutorial
 
@@ -700,6 +700,9 @@ Additionally, Sass supports standard math operators (+, -, *, /, and %):
 
 Sass is the older syntax where brackets and semicolons are not used. The new and primary syntax of Sass 3 is called Scss. Scss is more like the traditional CSS with brackets and semicolons while still supporting the features of Sass such as nesting.
 
+## Extra Credit Activity
+
+Write the declaration for a mixin called sassyHugo for a color, font-size and border-radius with a default of 5px. Show how the mixin is called by a div and what the div would look like after Sass has compiled to CSS. Please note that you have completed the extra credit on canvas.
 
 ### Additional Sass Resources:
 
