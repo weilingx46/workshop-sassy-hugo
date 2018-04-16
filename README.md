@@ -171,6 +171,7 @@ some basic html there:
 ```
 
 Save the file, and with the server still running you should see 'Hello World!' on your site's page.
+You may need to restart your hugo server to apply the change.
 
 
 ### Create a New Archetype for Posts
@@ -344,6 +345,12 @@ Add a few quick styling changes to make your page unique.
 
 This is obviously an extremely simple theme, but hopefully it shows how a theme
 can be made quickly and applied to many pages of your site.
+
+### Reverting to Ananke
+
+By now I'm sure you're eyes are hurting from that horrible yellow background. 
+Let's change our site back to using the 'ananke' theme. Change the theme in
+`config.toml` and save. You may need to restart your hugo server to apply the change.
 
 
 ## Hosting and Deployment
