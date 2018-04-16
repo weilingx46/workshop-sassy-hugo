@@ -1,5 +1,5 @@
 # Getting Started with Hugo
-Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions based on [Hugo's Getting Started guide](https://gohugo.io). Feel free to use their website for further documentation.
+Today we're going to use Hugo to generate our first static site! Open up your Terminal and follow along with these instructions based on [Hugo's Getting Started guide](https://gohugo.io/getting-started/quick-start/). Feel free to use their website for further documentation.
 ## Install Hugo
 Then verify the new install.
 ```
