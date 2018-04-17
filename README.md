@@ -384,6 +384,9 @@ Let's change our site back to using the 'ananke' theme. Change the theme in
 
 Now that you have a beautiful site setup, let's prepare to deploy it! :rocket: :rocket:
 
+**Before you do anything below, go to your `posts`, `about.md` and `getting-started.md` files, and turn the `drafts` flag to `false`**.
+
+
 1. Install Surge CLI (if you **haven't already done so** for your past short assignments and labs)
 
     `npm install -g surge`
