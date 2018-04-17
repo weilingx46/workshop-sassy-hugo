@@ -173,7 +173,7 @@ to create your own? Let's see what it would take to start designing a new theme.
 
 ### Create the New theme
 
-Hugo makes it simple to begin making a new theme. Use a name of your choice.
+Hugo makes it simple to begin making a new theme.
 Think of your own creative name instead of 'theme-name'.
 
 `hugo new theme theme-name`
@@ -246,7 +246,7 @@ Go back to the `index.html` file and lets replace the body with this:
   {{ end }}
   ```
 
-  Adding this after the above "Pages" code will let us see the first ten posts in reverse order of their date.
+  Adding this after the above "Pages" code will let us see the first ten posts.
   Notice that we require the type of the file to be "post" as we defined in our archetype.
   Also, the above code included links to each post and page so we can navigate to them. Try this out.
   
@@ -364,7 +364,6 @@ You'll notice these changes have not been applied yet. We need to link the css
 files to our html. To do this, head to the `header.html` file and add the links.
 
 ```
-<link rel="preload" href="css/theme.css" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="css/main.css" as="style" onload="this.rel='stylesheet'">
 ```
 
@@ -372,7 +371,7 @@ You should now see your styling changes have been applied to the main page.
 Add a few quick styling changes to make your page unique.
 
 This is obviously an extremely simple theme, but hopefully it shows how a theme
-can be made quickly and applied to many pages of your site. 
+can be made quickly and applied to the pages of your site. 
 
 ### Reverting to Ananke
 
