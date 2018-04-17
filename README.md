@@ -198,8 +198,8 @@ You may need to restart your hugo server to apply the change.
 
 ### Create a New Archetype for Posts
 
-In the `/archetypes` directory (not the archetypes directory in your theme folder), create a new file called `posts.md` and delete the `default.md` file.
-Add the following:
+Archetypes are essentially a base layout for a new file. Here we are making an archetype so that whenever we create a new post, it comes seeded with the frontmatter (metadata fields) that we desire. In the `/archetypes` directory (not the archetypes directory in your theme folder), create a new file called `posts.md` and delete the `default.md` file.
+Add the following to `posts.md`:
 
 ```
 ---
@@ -215,7 +215,7 @@ Let's try it out. Use `hugo new posts/post-name.md` to create a couple more post
 You should see that the new archetype is in use.
 
 **In each post you had previously, you will need to add the `type: "post"` field to the frontmatter.**
-This field is in our new archetype, but was not in the default when those posts were created.
+This field is in our new archetype, but was not in the default archetype when those posts were created.
 
 
 Now we can get to building out our theme a bit.
@@ -248,12 +248,16 @@ Go back to the `index.html` file and lets replace the body with this:
 
   Adding this after the above "Pages" code will let us see the first ten posts in reverse order of their date.
   Notice that we require the type of the file to be "post" as we defined in our archetype.
-  Also, the above code included links to each post and page so we can navigate to them.
+  Also, the above code included links to each post and page so we can navigate to them. Try this out.
+  
+  If you cannot navigate to your "About" and "Getting Started" pages, add `type: "page"` to each of those
+  page's frontmatter and the links should now work. This is because we have a conditional in the code above
+  looking for files of type "page".
 
   ### Templates
 
   The most important aspect of a Hugo theme is the template. There are three types of templates:
-  single (for content pages), list (for list pages), and partial (used in other places).
+  single (for content pages), list (for list pages), and partial (for construcitng others).
   Let's create our single template. Open up `themes/theme-name/layouts/_default/single.html`
   and add the following:
 
@@ -271,7 +275,7 @@ Go back to the `index.html` file and lets replace the body with this:
 </html>
 ```
 
-This will set the content that shows up on any "single" page. It includes a
+This will set the content that shows up on any "single" page, as in a post. It includes a
 format for the date so Hugo knows how to show the date. You should now see
 that posts show up as described here if you click on their link.
 
@@ -294,7 +298,8 @@ Play around with it if you wish.
 
 ### Partials
 
-As mentioned above, partial templates can be used in building other templates.
+As mentioned above, partial templates can be used in building other templates or files, 
+almost like a constant that stores a code block.
 Open up `themes/theme-name/layouts/partials/header.html` and let's make a partial
 to store the header for our html documents.
 
@@ -338,13 +343,13 @@ code with this:
 {{ partial "footer.html" . }}
 ```
 
-We can see that the calls to `header.html` and `footer.html` will be replaced with the code in those files.
+We can see that the calls to `header.html` and `footer.html` will be replaced with the code in their respective files.
 Reload the page and you should see that nothing has changed, but the partials are now in use.
 
 
 ### Styling
 
-Lastly, let's try to add just a bit of styling. Create a `themes/my-theme/static/css/main.css` file.
+Lastly, let's try to add just a bit of styling. Create a `themes/theme-name/static/css/main.css` file.
 Let's add in a bit of simple css.
 
 ```
@@ -367,13 +372,13 @@ You should now see your styling changes have been applied to the main page.
 Add a few quick styling changes to make your page unique.
 
 This is obviously an extremely simple theme, but hopefully it shows how a theme
-can be made quickly and applied to many pages of your site.
+can be made quickly and applied to many pages of your site. 
 
 ### Reverting to Ananke
 
 By now I'm sure you're eyes are hurting from that horrible yellow background.
-Let's change our site back to using the 'ananke' theme. Change the theme in
-`config.toml` and save. You may need to restart your hugo server to apply the change.
+Let's change our site back to using the 'ananke' theme. Change the `theme` field in
+`config.toml` back to Ananke and save. You may need to restart your hugo server to apply the change.
 
 
 ## Hosting and Deployment
