@@ -102,7 +102,7 @@ Add some images to `static`:
 
 Then you can simply include them in any of your Markdown files. For example, in `my-first-post.md`:
 
-*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! Check out [this tutorial](https://tutorialedge.net/golang/hugo/hugo-adding-images-to-posts/) for more help and other cool ways you can add images into your Hugo site using tricks called 'shortcodes'. 
+*Note:* You **don't** need to add `../` or `../static/` to the path name of the image. That's the magic of the `static` folder! Check out [this tutorial](https://tutorialedge.net/golang/hugo/hugo-adding-images-to-posts/) for more help and other cool ways you can add images into your Hugo site using tricks called 'shortcodes'.
 
 ```
 ---
@@ -214,7 +214,7 @@ This is now the frontmatter that will populate a post when you create a new one.
 Let's try it out. Use `hugo new posts/post-name.md` to create a couple more posts and add some content.
 You should see that the new archetype is in use.
 
-**In each post you had previously, you will need to add the `type: "post"` field to the frontmatter.
+**In each post you had previously, you will need to add the `type: "post"` field to the frontmatter.**
 This field is in our new archetype, but was not in the default when those posts were created.
 
 
@@ -315,7 +315,7 @@ And let's do the same for `footer.html`.
 ```
 
 Now to put them to use. Open up the `themes/theme-name/layouts/index.html` file
-and lets replace the existing header and footer with partials. Replace the existing 
+and lets replace the existing header and footer with partials. Replace the existing
 code with this:
 
 ```
@@ -371,17 +371,20 @@ can be made quickly and applied to many pages of your site.
 
 ### Reverting to Ananke
 
-By now I'm sure you're eyes are hurting from that horrible yellow background. 
+By now I'm sure you're eyes are hurting from that horrible yellow background.
 Let's change our site back to using the 'ananke' theme. Change the theme in
 `config.toml` and save. You may need to restart your hugo server to apply the change.
 
 
 ## Hosting and Deployment
+
+![deploy](https://media.giphy.com/media/11R7nCyinm0awo/giphy.gif)
+
 ### Manual Deployment And First Run
 
 Now that you have a beautiful site setup, let's prepare to deploy it! :rocket: :rocket:
 
-1. Install Surge CLI (if you haven't already done so for your past short assignments and labs)
+1. Install Surge CLI (if you **haven't already done so** for your past short assignments and labs)
 
     `npm install -g surge`
 
@@ -403,11 +406,11 @@ Now that you have a beautiful site setup, let's prepare to deploy it! :rocket: :
 
 5. If this is your first time using Surge, you should sign up at this point.
 
-6. If not, feel free to accept the given domain or change your URL by modifying the Surge domain as follows: **<YOUR PREFERRED DOMAIN>.surge.sh**
+6. If not, make sure it is in the `public` folder and then feel free to **accept** the given domain or change your URL by modifying the Surge domain as follows: **<-YOUR PREFERRED DOMAIN->.surge.sh**
 
 7. Once you have deployed the website, you can go to the URL to see your beautiful webpage now live!
 
-### Automating Deployment with Git Hooks
+### Automating Deployment with Git Hooks (OPTIONAL - but will make your life *so* much easier)
 
 Now, we want to automate this process with **Git Hooks**. Before we go into this process, however, we have to create a remote repo to push our local repo to.
 
@@ -507,31 +510,31 @@ To check that Sass is installed, check the version with the command: `sass -v`.
 
 With Sass variables, we can store information that we want to use multiple times. For example, if a brand color/font is used multiple times throughout your website, you may want to store those in variables and just call the variable each time.
 
-We can assign colors and fonts to variables with the following we can do: 
+We can assign colors and fonts to variables with the following we can do:
 
 
 	$primary-font: Times New Roman, serif
 	$primary-color: #a4a4a4
 	$secondary-color: #faf7f4
-	
+
 And when we reference the variable as our value:
 
 	div
 		color: $primary-color
 		background-color: $secondary-color
 		font: $primary-font
-	
-Notes: 
 
-	Compared to CSS, Sass does not require brackets {} or semicolons ; 
-	
-	Sass is a preprocessor so when processed, the variables that we define are translated into normal CSS. 
+Notes:
+
+	Compared to CSS, Sass does not require brackets {} or semicolons ;
+
+	Sass is a preprocessor so when processed, the variables that we define are translated into normal CSS.
 
 ### Nesting
 
-With Sass, we can nest our CSS selectors similar to the hierarchy of HTML. 
+With Sass, we can nest our CSS selectors similar to the hierarchy of HTML.
 
-(without Sass) Rather than writing: 
+(without Sass) Rather than writing:
 
 	footer ul {
 		display: flex;
@@ -539,18 +542,18 @@ With Sass, we can nest our CSS selectors similar to the hierarchy of HTML.
 		justify-content: space-around;
 		list-style: none;
 	}
-	
+
 	footer li {
 		display: inline-block;
 	}
-	
+
 	footer p {
 		font: $primary-font;
 		color: $primary-color;
 	}
 
 (with Sass) We can write:
-	
+
 	footer {
 	  ul {
 	    display: flex;
@@ -558,11 +561,11 @@ With Sass, we can nest our CSS selectors similar to the hierarchy of HTML.
 		justify-content: space-around;
 		list-style: none;
 	  }
-	
-	  li {	
+
+	  li {
 	  	display: inline-block;
 	  }
-	
+
 	  p {
 	   font: $font-stack;
 	   color: $primary-color;
@@ -582,16 +585,16 @@ The mixin declaration would look like
 	@mixin $mixinName ($input1, $input2){
 		...
 	}
-	
+
 For example:
 
 	$primary-color: blue;
-	
+
 	@mixin navItem ($color, $backgroundColor) {
 		color: $color;
 		background-color: $backgroundColor;
     }
-	
+
 	.rectangle { @include navItem ($primary-color, black); }
 
 When the CSS is generated, it will compile to become:
@@ -601,7 +604,7 @@ When the CSS is generated, it will compile to become:
 		background-color: black;
 	}
 
-Notes: 
+Notes:
 
 Default Values can also be set so for the example above:
 
@@ -609,17 +612,17 @@ Default Values can also be set so for the example above:
 		color: $color;
 		background-color: $backgroundColor;
 	}
-	
+
 	.rectangle { @include navItem (blue); }
 
-which would give us: 
+which would give us:
 
 	.rectangle{
 		color: blue;
 		background-color: green;
 	}
 
-The color is set to blue with the first argument that is passed in and the background-color is set to green by default since there is no correspnding argument passed in. 
+The color is set to blue with the first argument that is passed in and the background-color is set to green by default since there is no correspnding argument passed in.
 
 ### Inheritance
 
@@ -630,7 +633,7 @@ The color is set to blue with the first argument that is passed in and the backg
 		width: 1px;
 		border: 1px solid black;
 	}
-	
+
 	.smallShyCat{
 		background-color: orange;
 		margin: 100000px;
@@ -638,7 +641,7 @@ The color is set to blue with the first argument that is passed in and the backg
 		width: 1px;
 		border: 1px solid black;
 	}
-	
+
 	.smallShyHippo{
 		background-color: grey;
 		margin: 100000px;
@@ -655,77 +658,77 @@ We can employ Sass inheritance by using `@extend` to shorten our code where the 
 		width: 1px;
 		border: 1px solid black;
 	}
-	
+
 	.smallShyDog{
 		background-color: white;
 		@extend .smallShyAnimals;
 	}
-	
+
 	.smallShyCat{
 		background-color: orange;
 		@extend .smallShyAnimals;
 	}
-	
+
 	.smallShyHippo{
 		background-color: grey;
 		@extend .smallShyAnimals;
 	}
-	
-Each of the small shy animals inherit their small dimensions (because they are small) and large margins (because they are shy) from a parent selector .smallShyAnimals. The background-color for each of the animal selectors are different but that is okay since they are siblings and can branch out beyond their shared attributes.
-	
 
-### Additional Features 
+Each of the small shy animals inherit their small dimensions (because they are small) and large margins (because they are shy) from a parent selector .smallShyAnimals. The background-color for each of the animal selectors are different but that is okay since they are siblings and can branch out beyond their shared attributes.
+
+
+### Additional Features
 
 Sass allows us to break down our CSS into smaller parts, which is more maintainable and easier to organize.
 
 For example, if we want to break down our styles for each page of our website, we can!
 
-Say we have multiple Sass files: _homePage.scss, _userPage.scss, and _loginPage.scss. We can import all these pages into a singular page called styles.sass. 
+Say we have multiple Sass files: _homePage.scss, _userPage.scss, and _loginPage.scss. We can import all these pages into a singular page called styles.sass.
 
 	// a small section: _homePage.scss
-	
+
 	.homePageButton{
 		width: 20px;
 		height: 20px;
 		border-radius: 5px;
 		background-color:blue;
 	}
-	
+
 	// a small section: _userPage.scss
-	
+
 	.userPageButton{
 		width: 100px;
 		height: 100px;
 		border-radius: 10px;
 		background-color:green;
 	}
-	
+
 	// a small section: _loginPage.scss
-	
+
 	.loginPageButton{
 		width: 100px;
 		height: 50px;
 		border-radius: 3px;
 		background-color:yellow;
 	}
-	
-All these files can be imported into the base file: 
-	
+
+All these files can be imported into the base file:
+
 	// _styles.sass
-	
+
 	@import homePage
 	@import userPage
 	@import loginPage
-	
+
 	body
 	  font: Times New Roman, serif
 	  background-color: #faf7f4
-	  
-Additionally, Sass supports standard math operators (+, -, *, /, and %): 
+
+Additionally, Sass supports standard math operators (+, -, *, /, and %):
 
 	.rectangle
 	  width: 250px / 80px * 80%
-	
+
 ### Sass vs Scss
 
 Sass is the older syntax where brackets and semicolons are not used. The new and primary syntax of Sass 3 is called Scss. Scss is more like the traditional CSS with brackets and semicolons while still supporting the features of Sass such as nesting.
@@ -746,5 +749,3 @@ Write the declaration for a mixin called sassyHugo for a color, font-size and bo
 	https://www.sitepoint.com/the-benefits-of-inheritance-via-extend-in-sass/
 	http://sass.news/
 	http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
-
-
